@@ -1,0 +1,4 @@
+My To do list:
+-> Code along
+-> Submit tasks
+-> push to git
