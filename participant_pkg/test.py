@@ -1,29 +1,35 @@
-# def get_age():
-#     try:
-#         age= int(input("Please enter your age: "))
-#         if age >= 16:
-#             print(age)
-#         else:
-#             print("Error!, particpants have to be above 16")
-#     except TypeError:
-#         print("str only allowed!")
-# get_age()
 
 
-
-def get_name():
+while True:
     try:
         name = str(input("Please enter your name: "))
-        print(name)
-        if name.isdigit():
-            raise ValueError("It funds.nsufficien")
+        if (len(name) == 0) or (name.isdigit()== True):
+            raise ValueError("Invalid input!\n")   
     except ValueError as e:
         print(e)
-get_name()
+    try:
+        age= int(input("Please enter your age: "))
+        if age >= 12:
+            pass
+        else:
+            print("Invalid input!, particpants have to be above 12")
+    except ValueError:
+        print("Invalid input, input a number")
 
 
-# try:
-#     name = str(input("Please enter your name: "))
-#     print(name)
-# except ValueError:
-#     print("str only allowed!")
+    try: 
+        phone = input("Please enter your Phone: ")
+        if (len(phone) != 11) or (len(phone)> 11) or (phone.isdigit() == False):
+            raise ValueError("Invalid input! please enter 11 digits")   
+    except ValueError as e:
+        print(e)
+
+
+
+    try:
+        track = str(input("Please enter your track: ").split())
+        if (track.isdigit()== True):
+            raise ValueError("Invalid input, please enter your track.")
+    except ValueError as e:
+        print(e)
+

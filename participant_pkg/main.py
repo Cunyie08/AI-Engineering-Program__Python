@@ -1,71 +1,57 @@
-import csv
-from pathlib import Path
-
-
-workspace = Path("participant_pkg")
-csv_file = workspace / "participant.csv"
-
-def get_name():
-    try:
-        name = str(input("Please enter your name: "))
-        if (name.isalpha()==False):
-            raise ValueError("Invalid input!, enter a name")
-    except ValueError as e:
-        print(e) 
-         
-
-
-    # except ValueError:
-    #     print("str only allowed!")
-get_name()
-
-# def get_age():
-#     try:
-#         age= int(input("Please enter your age: "))
-#         if age >= 16:
-#             print(age)
-#         else:
-#             print("Error!, particpants have to be above 16")
-#     except ValueError:
-#         print("str only allowed!")
-# get_age()
-    # phone = input("Please enter your Phone: ")
-    # if len(phone) != 11:
-    #     print(phone)
-    # else:
-    #     print("Error,phone number incomplete")
-
-    # track = input("Please enter your track: ")
-    # if len(track) != 0:
-    #     print(track)
-
-    # else:
-    #     print("Error! you have not entered your track")
+from participant_pkg import file_ops
 
 
 
-# age = int(input("Please enter your age: "))
-# phone = int(input("Please enter your phone number: "))
-# track = input("Please enter your track: ")
+def main():
+    file_ops.load_participant()
 
-# participant.append(name)
-# participant.append(age)
-# participant.append(phone)
-# participant.append(track)
+    while True:
+        print("\nWelcome to NCC workshop") # Press 1
+        print("1. Registration")
+        print("2. Enquiries")
+
+        choice = input("please enter your selection: ")
+
+        if choice == "1":
+            try:
+                name = str(input("Please enter your name: "))
+                if (len(name) == 0) or (name.isdigit()== True):
+                    raise ValueError("Invalid input!\n Enter a name")   
+            except ValueError as e:
+                print(e)
+
+            try:
+                age= int(input("Please enter your age: "))
+                if age >= 12:
+                    pass
+                else:
+                    print("Error!, particpants have to be above 16")
+            except ValueError:
+                print("Invalid input, input a number")
 
 
+            try: 
+                phone = input("Please enter your Phone: ")
+                if (len(phone) != 11) or (phone.isdigit() == False):
+                    raise ValueError("Inavlid input! please enter 11 digits")   
+            except ValueError as e:
+                print(e)
 
-participant = {}
+            try:
+                track = str(input("Please enter your track: ").split())
+                if (track.isdigit()== True):
+                    raise ValueError("Invalid input, please enter your track.")
+            except ValueError as e:
+                print(e)
+        file_ops.row(name,age,phone,track)
+        print("Workshop Contact\n")
+        print()
+
+# participant_dict = {}
+
+# participant_dict["Name"] = name
+# participant_dict["Age"] = age
+# participant_dict["Phone"] = phone
+# participant_dict["Track"] = track
 
 
-
-# participant_dict = {
-#         ["Name", "Age", "Course", "Track"]
-# }
-
-
-# with open(csv_file, "w", newline="", encoding="utf-8") as f:
-#     f.write("Name,Age,Phone,Track")
-
-# with open(csv_file, "r", encoding="utf-8") as f:
-#     load_participant = f.readlines()
