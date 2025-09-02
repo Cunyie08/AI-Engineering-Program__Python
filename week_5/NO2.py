@@ -1,5 +1,4 @@
 # Creating a To-do List Application for an IOS
-
 from pathlib import Path
 
 file = Path("reminder_files")
@@ -29,12 +28,10 @@ def add_activity(activity):
 # Function to delete a task from the list
 def delete_activity(activity):
     if activity in reminders:
-        reminders.remove(activity)
-        print(f"Activity '{reminders}' removed.")
-    elif activity == "":
-        print("Enter an activity to be removed")
+        reminders.remove(save_activity)
+        print(f'Activity "{activity}" removed')
     else:
-        print("Activity not found in your schedule")
+        print('Activity not found!')
 
 # Function to display all added tasks
 def view_schedule():
@@ -111,15 +108,17 @@ def main():
             add_activity(activity)
             save_activity(filepath, reminders)
         elif option == '2':
-            activity = input("Enter an activity to delete: ").split()
+            activity = input("Enter an activity to delete: ").strip()
+            delete_activity(activity)
+            # save_activity(filepath, reminders)
             # try:
-            if activity in reminders:
-                reminders.remove(activity)
-                print(f"Activity '{activity}' removed.")
-            elif activity == "":
-                raise ValueError
-            else:
-                print("Activity not found in your schedule")
+            # if activity in reminders:
+            #     reminders.remove(activity)
+            #     print(f"Activity '{activity}' removed.")
+            # elif activity == "":
+            #     raise ValueError
+            # else:
+            #     print("Activity not found in your schedule")
             # except ValueError as e:
             #     print(e)
             # except Exception as e:
