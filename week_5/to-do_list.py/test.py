@@ -17,3 +17,4 @@ def add_activity(activity):
     except Exception as e:
         print("Unexpected error:", e)
 print(add_activity("Enter"))
+

@@ -15,7 +15,7 @@ def division(a, b):
         return a / b
     else:
         print("Error! Division by zero")
-
+        
 def exponent(a, b):
     return a ** b
 

@@ -29,9 +29,6 @@ def save_participant(csv_file,participant):
         
 
 
-
-print("\nReading ")
-
 def load_participant():
 
     with open(csv_file, "r", encoding="utf-8") as f:

@@ -17,7 +17,7 @@ def add_activity(activity):
         elif (activity.isdigit()): 
             raise ValueError("Invalid input!")
         else:
-            reminders.append(activity)
+            reminders.append(f"{activity}\n")
             return f"Activity '{activity}' added to your schedule."
     except ValueError as e:
         print(e)
@@ -28,7 +28,7 @@ def add_activity(activity):
 # Function to delete a task from the list
 def delete_activity(activity):
     if activity in reminders:
-        reminders.remove(save_activity)
+        reminders.remove(activity)
         print(f'Activity "{activity}" removed')
     else:
         print('Activity not found!')
@@ -110,19 +110,6 @@ def main():
         elif option == '2':
             activity = input("Enter an activity to delete: ").strip()
             delete_activity(activity)
-            # save_activity(filepath, reminders)
-            # try:
-            # if activity in reminders:
-            #     reminders.remove(activity)
-            #     print(f"Activity '{activity}' removed.")
-            # elif activity == "":
-            #     raise ValueError
-            # else:
-            #     print("Activity not found in your schedule")
-            # except ValueError as e:
-            #     print(e)
-            # except Exception as e:
-            #     print("Unexpected error:", e)
         elif option == '3':
             view_schedule()
         # elif option == '4':
