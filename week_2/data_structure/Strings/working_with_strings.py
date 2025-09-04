@@ -1,4 +1,4 @@
-name = 'Ada'
+age name = 'Ada'
 print(name)
 greeting = "Hello"
 print(greeting)
