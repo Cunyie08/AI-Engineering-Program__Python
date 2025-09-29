@@ -6,7 +6,7 @@ print("====================================================\n")
 name = "Kanyisola Fagbayi"
 Uni = "University of Lagos"
 LGA = "Ojo LG"
-Favorite_Nigerian_food = "Fried Plantain"
+Favorite_Nigerian_food = "Plantain"
 # print output statement
 print("Name: " , name)
 print("Uni: " , Uni)
